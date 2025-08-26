@@ -1,9 +1,13 @@
 import express from "express";
 import configDotenv from "dotenv";
+import quoteRouter from "./routers/quoteRouter.js"
 
 configDotenv.config();
 
 const app = express();
+
+app.use("/api", quoteRouter);
+
 
 app.get("/", (req, res) => {
     res.status(200).send("🚀 Server is running...");
